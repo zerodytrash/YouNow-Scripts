@@ -9,3 +9,6 @@ This will bypass YouNow's word filter. No matter what you write, it will reach t
 
 ## YouNow Real Viewer [<a href="https://github.com/zerodytrash/YouNow-Scripts/raw/main/YouNow%20Real%20Viewer.user.js">Download</a>]
 A simple script to display the current viewer count instead of the total views count on trending broadcasts and on the explore page
+
+## YouNow Mute Overview [<a href="https://github.com/zerodytrash/YouNow-Scripts/raw/main/YouNow%20Mute%20Overview.user.js">Download</a>]
+Detect the activity of all moderators in a broadcast. Muted users and current moderators are listed in a seperate popup.
