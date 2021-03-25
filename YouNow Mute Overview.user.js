@@ -89,8 +89,8 @@
         fetch("https://api.younow.com/php/api/broadcast/info/curId=0/channelId=" + currentChannelId).then(response => response.json()).then((broadcastInfo) => {
             if(broadcastInfo.userId !== currentChannelId) return;
 
-            mutedUserIds = broadcastInfo.silentFromChatUsers ? JSON.parse(broadcastInfo.silentFromChatUsers) : [];
-            modUserIds = broadcastInfo.broadcastMods ? JSON.parse(broadcastInfo.broadcastMods) : [];
+            mutedUserIds = broadcastInfo.silentFromChatUsers && Array.isArray(JSON.parse(broadcastInfo.silentFromChatUsers)) ? JSON.parse(broadcastInfo.silentFromChatUsers) : [];
+            modUserIds = broadcastInfo.broadcastMods && Array.isArray(JSON.parse(broadcastInfo.broadcastMods)) ? JSON.parse(broadcastInfo.broadcastMods) : [];
 
             refreshUiCounter();
             refreshPopupContentIfVisible();
