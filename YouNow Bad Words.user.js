@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouNow Bad Words
-// @namespace    https://zerody.one
-// @version      0.1
+// @namespace    https://github.com/zerodytrash/YouNow-Scripts/
+// @version      0.2
 // @description  This script allows you to write anything in the YouNow chat without getting filtered
 // @author       ZerodyOne
 // @match        https://www.younow.com/*
@@ -34,7 +34,7 @@
 
         // Append the magic char after every second char except before and after spaces
         for(var i = 0; i < text.length; i++) {
-            obfuscatedText += text[i] + (i % 2 > 0 && text[i] !== " " && i + 1 < text.length && text[i + 1] !== " " ? magicChar : "");
+            obfuscatedText += text[i] + (i % 2 > 0 ? magicChar : "");
         }
 
         return obfuscatedText;
