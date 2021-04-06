@@ -32,7 +32,7 @@
         var obfuscatedText = "";
         var magicChar = String.fromCharCode(8203); //zero-width space
 
-        // Append the magic char after every second char except before and after spaces
+        // Append the magic char after every second char
         for(var i = 0; i < text.length; i++) {
             obfuscatedText += text[i] + (i % 2 > 0 ? magicChar : "");
         }
