@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouNow Permanent Referee
 // @namespace    https://zerody.one
-// @version      0.2
+// @version      0.3
 // @description  Set users as permanent channel moderators on YouNow
 // @author       ZerodyOne
 // @match        https://www.younow.com/*
@@ -45,6 +45,17 @@
                 "credentials": "include"
             });
         });
+    }
+
+    function convertYouNowArrayToNormalArray(stupidArray) {
+        if(!stupidArray) return [];
+        var parsedObject = JSON.parse(stupidArray);
+        if(Array.isArray(parsedObject)) return parsedObject;
+        var tempArray = [];
+        for (var key in parsedObject) {
+            tempArray.push(parsedObject[key]);
+        }
+        return tempArray;
     }
 
     window.JSON.parse = function(text, reviver) {
@@ -130,8 +141,7 @@
 
             if(broadcastInfo.broadcastId && lastProcessedBroadcastId !== broadcastInfo.broadcastId) {
                 lastProcessedBroadcastId = broadcastInfo.broadcastId;
-                var broadcastMods = [];
-                if(broadcastInfo.broadcastMods) broadcastMods = JSON.parse(broadcastInfo.broadcastMods);
+                var broadcastMods = convertYouNowArrayToNormalArray(broadcastInfo.broadcastMods);
                 assignReferees(broadcastInfo.broadcastId, broadcastMods);
             }
         });
