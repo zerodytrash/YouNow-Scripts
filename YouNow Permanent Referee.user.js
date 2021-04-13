@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouNow Permanent Referee
 // @namespace    https://zerody.one
-// @version      0.1
+// @version      0.2
 // @description  Set users as permanent channel moderators on YouNow
 // @author       ZerodyOne
 // @match        https://www.younow.com/*
@@ -50,7 +50,7 @@
     window.JSON.parse = function(text, reviver) {
         var parsedData = nativeJsonParse(text, reviver);
 
-        if(typeof parsedData === "object") {
+        if(parsedData !== null && typeof parsedData === "object") {
 
             // capture channel info from api/younow/user response
             if(parsedData.errorCode === 0 && parsedData.session && parsedData.userId && parsedData.profile) {
