@@ -12,3 +12,6 @@ A simple script to display the current viewer count instead of the total views c
 
 ## YouNow Mute Overview [<a href="https://github.com/zerodytrash/YouNow-Scripts/raw/main/YouNow%20Mute%20Overview.user.js">Download</a>]
 Detect the activity of all moderators in a broadcast. Muted users and current moderators are listed in a seperate popup.
+
+## YouNow Permanent Referee [<a href="https://github.com/zerodytrash/YouNow-Scripts/raw/main/YouNow%20Permanent%20Referee.user.js">Download</a>]
+Appoint viewers as permanent moderators for your channel. Each time you broadcast, they will automatically become a broadcast referee.
