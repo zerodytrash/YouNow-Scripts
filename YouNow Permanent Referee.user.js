@@ -7,6 +7,7 @@
 // @match        https://www.younow.com/*
 // @grant        none
 // @run-at       document-start
+// @noframes
 // ==/UserScript==
 
 (function() {
