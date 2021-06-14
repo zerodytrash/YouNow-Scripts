@@ -64,9 +64,9 @@
         var likeIconContainer = document.querySelectorAll(".nav-sidebar .likes, .trending-user .likes");
 
         Array.prototype.forEach.call(likeIconContainer, function(container) {
-            var likeIcon = container.getElementsByClassName("ynicon-like");
+            var likeIcon = container.getElementsByClassName("ynicon ynicon-like");
             if(likeIcon.length > 0) {
-                likeIcon[0].className += 'ynicon ynicon-viewers';
+                likeIcon[0].className = 'ynicon ynicon-viewers';
             }
         });
     }
