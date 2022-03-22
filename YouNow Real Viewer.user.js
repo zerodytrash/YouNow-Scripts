@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouNow Real Viewer
 // @namespace    https://zerody.one
-// @version      0.2
+// @version      0.3
 // @description  Display the current viewer count instead of the like count on trending broadcasts
 // @author       ZerodyOne
 // @match        https://www.younow.com/*
