@@ -17,7 +17,7 @@
     window.JSON.parse = function(text, reviver) {
         var parsedData = nativeJsonParse(text, reviver);
 
-        if(typeof parsedData === "object") {
+        if(typeof parsedData === "object" && parsedData !== null) {
 
             // Top 10 trending users
             if(Array.isArray(parsedData.trending_users)) processBroadcastList(parsedData.trending_users);
