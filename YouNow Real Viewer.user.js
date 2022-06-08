@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         YouNow Real Viewer
 // @namespace    https://zerody.one
-// @version      0.3
-// @description  Display the current viewer count instead of the like count on trending broadcasts
+// @version      0.4
+// @description  Display the current viewer count instead of the like count on trending broadcasts and explore pages
 // @author       ZerodyOne
 // @match        https://www.younow.com/*
 // @grant        none
@@ -27,6 +27,9 @@
 
             // Users by location /explore/country/americas
             if(Array.isArray(parsedData.users)) processBroadcastList(parsedData.users);
+
+            // Featured users displayed on ~/battleTag
+            if(Array.isArray(parsedData.battling_users)) processBroadcastList(parsedData.battling_users);
 
             // Hashtag overview ~/explore/deutsch
             if(Array.isArray(parsedData.queues)) {
