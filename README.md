@@ -8,7 +8,10 @@ This script allows you to be completely invisible on YouNow. You will not be sho
 This will bypass YouNow's word filter. No matter what you write, it will reach the target :)
 
 ## YouNow Real Viewer [<a href="https://github.com/zerodytrash/YouNow-Scripts/raw/main/YouNow%20Real%20Viewer.user.js">Download</a>]
-A simple script to display the current viewer count instead of the total views count on trending broadcasts and on the explore page
+A simple script to display the current viewer count instead of the total views count on trending broadcasts and on the explore page.
+
+## YouNow Locale Switcher [<a href="https://github.com/zerodytrash/YouNow-Scripts/raw/main/YouNow%20Locale%20Switcher.user.js">Download</a>]
+Switch the locale of the trending list and explore page (featured list) without changing your YouNow account settings.
 
 ## YouNow Mute Overview [<a href="https://github.com/zerodytrash/YouNow-Scripts/raw/main/YouNow%20Mute%20Overview.user.js">Download</a>]
 Detect the activity of all moderators in a broadcast. Muted users and current moderators are listed in a seperate popup.
