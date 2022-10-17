@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouNow Undercover
 // @namespace    https://zerody.one
-// @version      0.1
+// @version      0.2
 // @description  This script will make you invisible in the YouNow audience list
 // @author       ZerodyOne
 // @match        https://www.younow.com/*
@@ -18,7 +18,7 @@
     window.SharedWorker = function(url, name) {
         var worker = new nativeSharedWorker(url, name);
 
-        if(url === "/js/pusher-shared-worker.js") {
+        if(url.includes("pusher-shared-worker")) {
             interceptPusherWorker(worker);
         }
 
