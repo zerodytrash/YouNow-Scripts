@@ -1,13 +1,12 @@
 // ==UserScript==
 // @name         YouNow Mute Overview
 // @namespace    https://zerody.one
-// @version      0.3
+// @version      0.4
 // @description  A simple moderator audit feature for YouNow
 // @author       ZerodyOne
 // @match        https://www.younow.com/*
 // @grant        none
 // @run-at       document-start
-// @noframes
 // ==/UserScript==
 
 (function() {
@@ -87,7 +86,7 @@
     }
 
     function refreshBroadcastInfo() {
-        fetch("https://api.younow.com/php/api/broadcast/info/curId=0/channelId=" + currentChannelId).then(response => response.json()).then((broadcastInfo) => {
+        fetch("https://api.younow.com/php/api/broadcast/info/curId=0/channelId=" + currentChannelId, { credentials: 'include' }).then(response => response.json()).then((broadcastInfo) => {
             if(broadcastInfo.userId !== currentChannelId) return;
 
             mutedUserIds = convertYouNowArrayToNormalArray(broadcastInfo.silentFromChatUsers);
