@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         YouNow Undercover
 // @namespace    https://zerody.one
-// @version      0.2
+// @version      0.3
 // @description  This script will make you invisible in the YouNow audience list
 // @author       ZerodyOne
 // @match        https://www.younow.com/*
@@ -12,33 +12,18 @@
 (function() {
     'use strict';
 
-    var nativeSharedWorker = window.SharedWorker;
+    const pusherHijackInterval = setInterval(() => {
+        if (typeof window.Pusher?.prototype?.subscribe === 'function'){
+            const nativePusherSubscribe = window.Pusher.prototype.subscribe;
 
-    // Intercept the creation of shared workers to hijack YouNow's Pusher connection
-    window.SharedWorker = function(url, name) {
-        var worker = new nativeSharedWorker(url, name);
+            clearInterval(pusherHijackInterval);
 
-        if(url.includes("pusher-shared-worker")) {
-            interceptPusherWorker(worker);
-        }
-
-        return worker;
-    };
-
-    function interceptPusherWorker(worker) {
-        var nativePostMessage = worker.port.postMessage;
-
-        // Intercept shared worker communication by hijacking the postMessage function
-        worker.port.postMessage = function(message, transferList) {
-
-            // Set the UserID to 0 on any pusher channel, this will cause an anonymous subscription
-            if(message && message.type && message.type === "LISTEN_TO_PUBLIC") {
-                message.data.userId = 0;
+            window.Pusher.prototype.subscribe = function(channelName) {
+                if (channelName.indexOf('public-on-channel') === 0) {
+                    arguments[0] = arguments[0].split('_').slice(0, 2).join('_') + '_0_0';
+                }
+                return nativePusherSubscribe.apply(this, arguments);
             }
-
-            // Redirect the modified message to the original (native) postMessage function
-            nativePostMessage.call(worker.port, message, transferList);
         }
-    }
-
+    }, 1);
 })();
